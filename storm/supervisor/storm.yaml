@@ -1,0 +1,148 @@
+java.library.path: /opt/soft/jdk/lib:/opt/soft/jre/lib:/usr/local/lib
+storm.local.dir: /home/work/data
+storm.zookeeper.servers:
+  - 10.108.96.239 
+  - 10.108.96.240
+  - 10.108.96.241
+storm.zookeeper.port: 11000
+storm.zookeeper.root: /storm/
+storm.zookeeper.session.timeout: 30000
+storm.zookeeper.connection.timeout: 30000
+storm.zookeeper.retry.times: 5
+storm.zookeeper.retry.interval: 1000
+storm.zookeeper.retry.intervalceiling.millis: 30000
+storm.cluster.mode: distributed
+storm.local.mode.zmq: false
+storm.thrift.transport: backtype.storm.security.auth.SimpleTransportPlugin
+storm.cluster.name: xltst-dev
+nimbus.host: 10.108.96.237
+nimbus.thrift.port: 6627
+nimbus.thrift.max_buffer_size: 10485760
+nimbus.task.timeout.secs: 30
+nimbus.supervisor.timeout.secs: 60
+nimbus.monitor.freq.secs: 10
+nimbus.cleanup.inbox.freq.secs: 600
+nimbus.inbox.jar.expiration.secs: 3600
+nimbus.task.launch.secs: 120
+nimbus.reassign: true
+nimbus.file.copy.expiration.secs: 600
+nimbus.topology.validator: backtype.storm.nimbus.DefaultTopologyValidator
+ui.port: 21901
+logviewer.port: 22001
+logviewer.appender.name: A1
+drpc.port: 3772
+drpc.worker.threads: 64
+drpc.queue.size: 128
+drpc.invocations.port: 3773
+drpc.request.timeout.secs: 600
+drpc.childopts: -Xmx768m
+transactional.zookeeper.root: /transactional
+transactional.zookeeper.servers: null
+transactional.zookeeper.port: null
+slot_number: 18
+supervisor.slots.ports:
+  - 21810
+  - 21811
+  - 21812
+  - 21813
+  - 21814
+  - 21815
+  - 21816
+  - 21817
+  - 21818
+  - 21819
+  - 21820
+  - 21821
+  - 21822
+  - 21823
+  - 21824
+  - 21825
+  - 21826
+  - 21827
+supervisor.worker.start.timeout.secs: 120
+supervisor.worker.timeout.secs: 30
+supervisor.monitor.frequency.secs: 3
+supervisor.heartbeat.frequency.secs: 5
+supervisor.enable: true
+worker.heartbeat.frequency.secs: 1
+worker.renew.kerberos.period.secs: 3600
+task.heartbeat.frequency.secs: 3
+task.refresh.poll.secs: 10
+zmq.threads: 1
+zmq.linger.millis: 5000
+zmq.hwm: 0
+storm.messaging.transport: backtype.storm.messaging.netty.Context
+storm.messaging.netty.server_worker_threads: 1
+storm.messaging.netty.client_worker_threads: 1
+storm.messaging.netty.buffer_size: 5242880
+storm.messaging.netty.max_retries: 50
+storm.messaging.netty.max_wait_ms: 4000
+storm.messaging.netty.min_wait_ms: 100
+topology.enable.message.timeouts: true
+topology.debug: false
+topology.optimize: true
+topology.workers: 5
+topology.acker.executors: 50
+topology.tasks: null
+topology.message.timeout.secs: 60
+topology.skip.missing.kryo.registrations: false
+topology.max.task.parallelism: null
+topology.max.spout.pending: 5000
+topology.state.synchronization.timeout.secs: 60
+topology.stats.sample.rate: 0.05
+topology.builtin.metrics.bucket.size.secs: 60
+topology.fall.back.on.java.serialization: true
+topology.worker.childopts: null
+topology.executor.receive.buffer.size: 1024
+topology.executor.send.buffer.size: 1024
+topology.receiver.buffer.size: 8
+topology.transfer.buffer.size: 1024
+topology.tick.tuple.freq.secs: null
+topology.worker.shared.thread.pool.size: 4
+topology.disruptor.wait.strategy: com.lmax.disruptor.BlockingWaitStrategy
+topology.spout.wait.strategy: backtype.storm.spout.SleepSpoutWaitStrategy
+topology.sleep.spout.wait.strategy.time.ms: 1
+topology.error.throttle.interval.secs: 10
+topology.max.error.report.per.interval: 5
+topology.kryo.factory: backtype.storm.serialization.DefaultKryoFactory
+topology.tuple.serializer: backtype.storm.serialization.types.ListDelegateSerializer
+topology.trident.batch.emit.interval.millis: 500
+dev.zookeeper.path: /tmp/dev-storm-zookeeper
+metrics.http.host: 10.108.96.241
+metrics.http.port: 22101
+metrics.http.max.connections: 100
+metrics.http.post.context: /storm/metrics
+metrics.http.get.context: /
+metrics.http.perf.url: http://127.0.0.1:1988/v1/push
+metrics.http.perf.report_period.secs: 60
+topology.metrics.consumer.register:
+  - class: backtype.storm.metric.HttpMetricsConsumer
+    parallelism.hint: 1
+ui.childopts: -Xmx2048m
+logviewer.childopts: -Xmx2048m
+supervisor.childopts: -Xmx2048m
+worker.childopts: 
+      -Xmx2048m
+      -Xms2048m
+      -Xmn768m
+      -XX:MaxDirectMemorySize=1024m
+      -XX:MaxPermSize=512m
+      -XX:+DisableExplicitGC
+      -XX:+HeapDumpOnOutOfMemoryError
+      -XX:HeapDumpPath=$log_dir
+      -XX:+PrintGCApplicationStoppedTime
+      -XX:+PrintGCApplicationConcurrentTime
+      -XX:+UseConcMarkSweepGC
+      -XX:CMSInitiatingOccupancyFraction=80
+      -XX:+UseMembar
+      -verbose:gc
+      -XX:+PrintGCDetails
+      -XX:+PrintGCTimeStamps
+      -XX:+PrintGCDateStamps
+      -XX:ParallelGCThreads=16
+      -XX:ConcGCThreads=16
+      -XX:+UseGCLogFileRotation
+      -XX:NumberOfGCLogFiles=20
+      -XX:GCLogFileSize=128m
+    
+availability.topology.worker.number: 3

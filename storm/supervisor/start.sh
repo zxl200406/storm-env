@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export LC_ALL="en_US.UTF-8"
 job_name="supervisor"
-run_dir="/home/work/app/storm/supervisor"
+run_dir="/home/work/app/storm-env/storm/supervisor"
 
 run_dir=`cd "$run_dir"; pwd`
 
@@ -64,7 +64,7 @@ if [ -d "$package_dir/lib/native" ]; then
   options="$OPTS -Djava.library.path=$JAVA_LIBRARY_PATH"
 fi
 
-export SUPERVISOR_LOG_DIR=/home/work/storm/supervisor
+export SUPERVISOR_LOG_DIR=/home/work/log/storm/supervisor
 
 export HADOOP_COMMON_HOME=$package_dir
 export HADOOP_HDFS_HOME=$package_dir

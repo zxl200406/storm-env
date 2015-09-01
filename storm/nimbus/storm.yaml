@@ -1,8 +1,8 @@
 java.library.path: /opt/soft/jdk/lib:/opt/soft/jre/lib:/usr/local/lib
 storm.local.dir: /home/work/data
 storm.zookeeper.servers:
-  - 10.108.96.237
-  - 10.108.96.238
+  - 10.108.96.241
+  - 10.108.96.240
   - 10.108.96.239
 storm.zookeeper.port: 11000
 storm.zookeeper.root: /storm/xltst-dev

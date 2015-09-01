@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 export LC_ALL="en_US.UTF-8"
 job_name="nimbus"
-run_dir="/home/work/app/storm/nimbus"
-
+run_dir="/home/work/app/storm-env/storm/nimbus" 
 run_dir=`cd "$run_dir"; pwd`
 
 start_time=`date +%Y%m%d-%H%M%S`
@@ -20,7 +19,7 @@ fi
 output_file="$run_dir/stdout/${job_name}_${start_time}.out"
 
 jar_dirs="$package_dir/:$package_dir/lib/*:$package_dir/*"
-params="-Xloggc:$run_dir/stdout/nimbus_gc_${start_time}.log -Xmx2048m -Xms2048m -Xmn768m -XX:MaxDirectMemorySize=1024m -XX:MaxPermSize=512m -XX:+DisableExplicitGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$log_dir -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseMembar -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:ParallelGCThreads=16 -XX:ConcGCThreads=16 -Dlogfile.name=nimbus.log -Dstorm.home=$run_dir -Dstorm.log.dir=$run_dir/logs -Djava.library.path="/opt/soft/jdk/lib:/opt/soft/jre/lib:/usr/local/lib" -Dlogback.configurationFile=$run_dir/cluster.xml -Dstorm.log.level=info -Djava.security.krb5.conf=$run_dir/krb5.conf backtype.storm.daemon.nimbus "
+params="-Xloggc:$run_dir/stdout/nimbus_gc_${start_time}.log -Xmx1024m -Xms1024m -Xmn512m -XX:MaxDirectMemorySize=1024m -XX:MaxPermSize=512m -XX:+DisableExplicitGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$log_dir -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseMembar -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:ParallelGCThreads=16 -XX:ConcGCThreads=16 -Dlogfile.name=nimbus.log -Dstorm.home=$run_dir -Dstorm.log.dir=$run_dir/logs -Djava.library.path="/opt/soft/jdk/lib:/opt/soft/jre/lib:/usr/local/lib" -Dlogback.configurationFile=$run_dir/cluster.xml -Dstorm.log.level=info -Djava.security.krb5.conf=$run_dir/krb5.conf backtype.storm.daemon.nimbus "
 
 security_jars=""
 for jar in `find $package_dir/ -name hadoop-security-*.jar`; do
